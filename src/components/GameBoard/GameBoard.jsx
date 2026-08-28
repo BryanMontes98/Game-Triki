@@ -8,7 +8,7 @@ const initialGameBoard = [
   [null, null, null],
 ];
 
-export default function GameBoard() {
+export default function GameBoard({ onSelectPlayer }) {
 
     const [gameBoard, setGameBoard] = useState(initialGameBoard);
 
@@ -16,8 +16,10 @@ export default function GameBoard() {
           setGameBoard( (prevGameBoard)=> {
             const newGameBoard = prevGameBoard.map( (cols)=> [...cols] )
             newGameBoard[rowIndex][colIndex] = "X";
-            return newGameBoard
+            return newGameBoard;
           })
+
+          onSelectPlayer();
     }
 
   return (

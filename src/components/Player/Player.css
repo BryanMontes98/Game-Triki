@@ -59,3 +59,24 @@
     border-radius: 6px;
     outline: 3px solid #f9f9fa;
 }
+
+.players-container li.active .player-info {
+  color: #ffffff;
+  animation: pulse-text 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse-text {
+  0%, 100% {
+    text-shadow:
+      0 0 8px #e02eff,
+      0 0 16px #e02eff,
+      0 0 28px #e02eff;
+    opacity: 1;
+  }
+  50% {
+    text-shadow:
+      0 0 3px #e02eff,
+      0 0 6px #e02eff;
+    opacity: 0.6;
+  }
+}
