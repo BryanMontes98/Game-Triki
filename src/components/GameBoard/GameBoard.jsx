@@ -2,24 +2,22 @@
 import "./GameBoard.css";
 import { useState } from "react";
 
-const initialGameBoard = [
-  [null, null, null],
-  [null, null, null],
-  [null, null, null],
-];
+const initialGameBoard = [];
 
-export default function GameBoard({ onSelectSquare, activePlayerSymbol }) {
+for ( let index = 0; index <= 2; index++ ) initialGameBoard.push( Array(3).fill(null) );
+
+export default function GameBoard({ onSelectedSquare, activePlayerSymbol }) {
 
     const [gameBoard, setGameBoard] = useState(initialGameBoard);
 
     function handleClickSquare(rowIndex, colIndex) {
           setGameBoard( (prevGameBoard)=> {
-            const newGameBoard = prevGameBoard.map( (cols)=> [...cols] )
+            const newGameBoard = prevGameBoard.map( (row)=> [...row] )
             newGameBoard[rowIndex][colIndex] = activePlayerSymbol;
             return newGameBoard;
           })
 
-          onSelectSquare();
+          onSelectedSquare();
     }
 
   return (
@@ -30,7 +28,7 @@ export default function GameBoard({ onSelectSquare, activePlayerSymbol }) {
             <ol className="game-board-col">
               {row.map((col, colIndex) => (
                 <li key={colIndex}>
-                  <button onClick={ ()=>handleClickSquare(rowIndex, colIndex) }>{ col }</button>
+                  <button onClick={ ()=> { if(gameBoard[rowIndex][colIndex] === null) handleClickSquare(rowIndex, colIndex) } }>{ col }</button>
                 </li>
               ))}
             </ol>

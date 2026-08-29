@@ -7,7 +7,7 @@ function App() {
 
   const [activePlayer, setActivePlayer] = useState("X");
 
-  function handlePickedSquare() {
+  function handleSelectedSquare() {
     setActivePlayer( (lastActivePlayer)=> (lastActivePlayer === "X" ? "O" : "X") );
   }
 
@@ -21,7 +21,7 @@ function App() {
           </ol>
         </div>
       </main>
-      <GameBoard onSelectSquare={ ()=> handlePickedSquare() } activePlayerSymbol={activePlayer}/>
+      <GameBoard onSelectedSquare={ ()=> handleSelectedSquare() } activePlayerSymbol={activePlayer}/>
     </>
   );
 }
