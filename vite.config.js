@@ -5,6 +5,6 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   plugins: [react()],
   server: {
-    allowedHosts: ['73da-186-81-100-81.ngrok-free.app'],
+    allowedHosts: ['.ngrok-free.app'],
   },
 })
