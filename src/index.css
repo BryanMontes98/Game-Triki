@@ -33,7 +33,7 @@
   :root {
     --text: #9ca3af;
     --text-h: #f3f4f6;
-    background: linear-gradient(160deg, #93295a, #93295a, #5e3099, #5f2aa5, #3567a4, #3567a4);
+    background: linear-gradient(160deg, #93295a, #93295a, #5e3099, #5f2aa5, #3567a4, #3567a4, #5f2aa5, #93295a);
     --code-bg: #1f2028;
     --accent: #c084fc;
     --accent-bg: rgba(192, 132, 252, 0.15);
@@ -168,17 +168,18 @@ header img {
 header h1 {
   font-family: 'Courier New', Courier, monospace;
   font-weight: 600;
+  margin-bottom: 8px;
 }
 
 
-.presentation-footer{
+.info-of-creator{
   background-color: #370a45;
   border-radius: 50px;
   width: 25%;
   margin: 0 auto;
 }
 
-.presentation-footer p {
+.info-of-creator p {
   display: flex;
   justify-content: center;
   font-weight: bold;
