@@ -19,6 +19,7 @@
     padding: 0;
 }
 
+
 .game-board-col button {
     width: 100px;
     height: 100px;
@@ -27,12 +28,13 @@
     border-radius: 10px;
     cursor: pointer;
     background: #370a45;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Press Start 2P';
     font-weight: bold;
-    font-size: 33px;
+    font-size: 27px;
 }
 
 .game-board-col button:hover {
     transform: scale(1.1);
-    transition: .1s ease;
+    transition: .25s ease;
+    background: #78348f;
 }

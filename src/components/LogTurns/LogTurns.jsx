@@ -5,8 +5,9 @@ export default function LogTurns({ gameTurns }) {
 
     return (
         <>
-            <h3 className='log-turns-title'>Información de la tabla</h3>
+            {  gameTurns.length === 0 ? <p className='log-turns-empty'>No hay información de la tabla</p> : 
             <ol className="log-turns">
+            <h3 className='log-turns-title'>Información de la tabla</h3>
                 { gameTurns.map( (turn, index)=> {
                     return (
                         <li key={index}>
@@ -16,6 +17,8 @@ export default function LogTurns({ gameTurns }) {
                     )
                 })}
             </ol>
+            }
+            
         </>
     );
 

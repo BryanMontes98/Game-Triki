@@ -169,6 +169,22 @@ header h1 {
   font-family: 'Courier New', Courier, monospace;
   font-weight: 600;
   margin-bottom: 8px;
+  background: linear-gradient(20deg, #cda8f3, #ffffff, #ffffff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 40px;
+  animation: gradientMove 2s linear infinite;
+}
+
+@keyframes gradientMove {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 200% 50%;
+  }
 }
 
 

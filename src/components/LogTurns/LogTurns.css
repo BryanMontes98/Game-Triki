@@ -12,9 +12,9 @@
   animation: slide-in-from-left 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
   margin: 0 0 2rem 0;
   padding: 1rem 1.5rem;
-  border: 1px solid #ffff;
+  border: 2px solid #ffff;
   background: linear-gradient(20deg, #a753c3, #190432);
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-size: 20px;
   box-shadow:
     0 0 8px #ffffff,
@@ -24,9 +24,9 @@
 }
 
 .log-turns p {
-    text-align: start;
-    font-weight: bold;
-    margin-bottom: 5px;
+  text-align: start;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 @keyframes slide-in-from-left {
@@ -40,12 +40,24 @@
   }
 }
 
+.log-turns-empty {
+  color: #ffff;
+  font-family: "Courier New", Courier, monospace;
+  padding: 5px 10px;
+  max-width: 300px;
+  margin: 0 auto 20px;
+  animation: slide-in-from-left 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
 .log-turns-title {
-    color: #ffff;
-    font-family: 'Courier New', Courier, monospace;
-    border-bottom: 3px solid #ffff;
-    border-radius: 20px;
-    padding: 5px 10px;
-    max-width: 300px;
-    margin: 0 auto 20px;
+  color: #ffff;
+  font-size: 20px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  border-bottom: 3px solid #ffff;
+  border-radius: 20px;
+  padding: 5px 10px;
+  max-width: 300px;
+  margin: 0 auto 20px;
+  animation: slide-in-from-left 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
 }
