@@ -10,8 +10,8 @@
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --sans: system-ui, "Segoe UI", Roboto, sans-serif;
+  --heading: system-ui, "Segoe UI", Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
   font: 18px/145% var(--sans);
@@ -33,7 +33,17 @@
   :root {
     --text: #9ca3af;
     --text-h: #f3f4f6;
-    background: linear-gradient(160deg, #93295a, #93295a, #5e3099, #5f2aa5, #3567a4, #3567a4, #5f2aa5, #93295a);
+    background: linear-gradient(
+      160deg,
+      #93295a,
+      #93295a,
+      #5e3099,
+      #5f2aa5,
+      #3567a4,
+      #3567a4,
+      #5f2aa5,
+      #93295a
+    );
     --code-bg: #1f2028;
     --accent: #c084fc;
     --accent-bg: rgba(192, 132, 252, 0.15);
@@ -110,7 +120,7 @@ code {
 
 .esquinero-uno {
   position: absolute;
-  width: 80px;   /* ajusta el tamaño a tu gusto */
+  width: 80px;
   height: 80px;
   margin: 10px 0 0 10px;
   pointer-events: none;
@@ -120,7 +130,7 @@ code {
 
 .esquinero-dos {
   position: absolute;
-  width: 80px;   /* ajusta el tamaño a tu gusto */
+  width: 80px;
   height: 80px;
   margin: 10px 10px 0 0;
   pointer-events: none;
@@ -151,7 +161,6 @@ code {
   transform: rotate(180deg);
 }
 
-
 header {
   display: flex;
   flex-direction: column;
@@ -163,10 +172,11 @@ header img {
   width: 200px;
   border: 5px solid #ffff;
   border-radius: 50%;
+  pointer-events: none;
 }
 
 header h1 {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-weight: 600;
   margin-bottom: 8px;
   background: linear-gradient(20deg, #cda8f3, #ffffff, #ffffff);
@@ -187,8 +197,7 @@ header h1 {
   }
 }
 
-
-.info-of-creator{
+.info-of-creator {
   background-color: #370a45;
   border-radius: 50px;
   width: 25%;
@@ -205,4 +214,51 @@ header h1 {
   border-left: 4px solid aliceblue;
   border-right: 4px solid aliceblue;
   border-radius: 50px;
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 915px) {
+  .info-of-creator {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 773px) {
+  header img {
+    width: 150px;
+    border: 5px solid #ffff;
+    border-radius: 50%;
+    margin-top: 30px;
+  }
+
+  .info-of-creator {
+    width: 200px;
+  }
+
+  .info-of-creator p {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .esquinero-uno {
+    width: 70px;
+    height: 70px;
+    margin: 5px 0 0 10px;
+  }
+  .esquinero-dos {
+    width: 70px;
+    height: 70px;
+    margin: 5px 10px 0 0;
+  }
+  .esquinero-tres {
+    width: 70px;
+    height: 70px;
+    margin: 0 0 20px 10px;
+  }
+  .esquinero-cuatro {
+    width: 70px;
+    height: 70px;
+    margin: 0 10px 20px 0;
+  }
 }

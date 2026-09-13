@@ -2,7 +2,7 @@
   max-width: 50rem;
   color: #ffff;
   list-style: none;
-  margin: auto;
+  margin: 0 auto 30px;
   padding: 0;
   font-size: 1.5rem;
 }
@@ -44,7 +44,7 @@
   color: #ffff;
   font-family: "Courier New", Courier, monospace;
   padding: 5px 10px;
-  max-width: 300px;
+  max-width: 400px;
   margin: 0 auto 20px;
   animation: slide-in-from-left 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
 }
@@ -60,4 +60,55 @@
   max-width: 300px;
   margin: 0 auto 20px;
   animation: slide-in-from-left 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 900px) {
+  .log-turns {
+    width: 80%;
+    color: #ffff;
+    list-style: none;
+    margin: 0 auto 30px;
+    padding: 0;
+    font-size: 1.5rem;
+  }
+  .log-turns li {
+  margin: 0 0 1.8rem 0;
+  padding: 1rem 1.5rem;
+  font-size: 17px;
+}
+}
+
+@media screen and (max-width: 600px) {
+  .log-turns-empty {
+    margin: 0 auto 40px;
+    font-size: 15px;
+  }
+
+  .log-turns p {
+  text-align: start;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+}
+
+@media screen and (max-width: 505px) {
+  .log-turns {
+    width: 70%;
+    color: #ffff;
+    list-style: none;
+    margin: 0 auto 30px;
+    padding: 0;
+    font-size: 1.5rem;
+  }
+
+  .log-turns p {
+    border-bottom: 2px solid #ffff;
+    max-width: 100%;
+  }
+
+  .log-turns-empty {
+    margin: 0 auto 50px;
+    font-size: 13px;
+  }
 }

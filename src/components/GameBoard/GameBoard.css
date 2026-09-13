@@ -1,40 +1,46 @@
-
 .game-board-container {
-    width: 80%;
-    margin: 10px auto 70px;
-    border: 4px solid #ffff;
-    border-radius: 8px;
-    padding: 20px;
-    background: linear-gradient(20deg, #a753c3, #190432);
+  width: 80%;
+  margin: 10px auto 50px;
+  border: 4px solid #ffff;
+  border-radius: 8px;
+  padding: 20px;
+  background: linear-gradient(20deg, #a753c3, #190432);
 }
 
 .game-board-container li {
-    list-style: none;
+  list-style: none;
 }
 
 .game-board-col {
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
 }
 
-
 .game-board-col button {
-    width: 100px;
-    height: 100px;
-    margin: 10px;
-    outline: 3px solid #f9f9fa;
-    border-radius: 10px;
-    cursor: pointer;
-    background: #370a45;
-    font-family: 'Press Start 2P';
-    font-weight: bold;
-    font-size: 27px;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  outline: 3px solid #f9f9fa;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #370a45;
+  font-family: "Press Start 2P";
+  font-weight: bold;
+  font-size: 27px;
 }
 
 .game-board-col button:hover {
-    transform: scale(1.1);
-    transition: .25s ease;
-    background: #78348f;
+  transform: scale(1.1);
+  transition: 0.25s ease;
+  background: #78348f;
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 400px) {
+  .game-board-col button {
+    width: 80px;
+    height: 80px;
+  }
 }
