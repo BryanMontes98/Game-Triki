@@ -1,7 +1,7 @@
 
 import './LogTurns.css';
 
-export default function LogTurns({ gameTurns }) {
+export default function LogTurns({ playerNames, gameTurns }) {
 
     return (
         <>
@@ -12,7 +12,7 @@ export default function LogTurns({ gameTurns }) {
                     return (
                         <li key={index}>
                             <p>Turno: {(gameTurns.length - index)} </p>
-                            <span>El jugador 1 ha colocado el simbolo '{turn.symbol}' en la posición [{turn.square.rowIndex}][{turn.square.colIndex}]  </span>
+                            <span>{ turn.symbol === 'X' ? playerNames.name1 : playerNames.name2  } ha colocado el simbolo '{turn.symbol}' en la posición [{turn.square.rowIndex}][{turn.square.colIndex}]  </span>
                         </li>
                     )
                 })}

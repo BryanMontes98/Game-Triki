@@ -7,6 +7,24 @@ import { useState } from "react";
 function App() {
   const [gameTurns, setGameTurns] = useState([]);
   const [activePlayer, setActivePlayer] = useState("X");
+  const [playerNames, setPlayerNames] = useState({
+    name1: "Jugador 1",
+    name2: "Jugador 2",
+  });
+
+  function ChangeNamePlayerField(event, playerKey) {
+    setPlayerNames( (...prevPlayerNames)=> {
+      const prevsPlayerNames = {...prevPlayerNames};
+      const otherkey = playerKey === 'name1' ? 'name2' : 'name1';
+      const newPlayerNames = {
+        [playerKey] : event.target.value,
+        [otherkey] : prevsPlayerNames[0][otherkey]
+      }
+
+      return newPlayerNames;
+
+    });
+  }
 
   function handleSelectedSquare(rowIndex, colIndex) {
     setActivePlayer((lastActivePlayer) =>
@@ -34,12 +52,16 @@ function App() {
         <div className="players-container">
           <ol className="players">
             <Player
-              initialPlayerName="Jugador 1"
+              namePlayer={playerNames.name1}
+              onChangeName={ChangeNamePlayerField}
+              keyName='name1'
               playerSymbol="X"
               isActive={activePlayer == "X"}
             />
             <Player
-              initialPlayerName="Jugador 2"
+              namePlayer={playerNames.name2}
+              onChangeName={ChangeNamePlayerField}
+              keyName='name2'
               playerSymbol="O"
               isActive={activePlayer == "O"}
             />
@@ -50,7 +72,7 @@ function App() {
         onSelectedSquare={handleSelectedSquare}
         gameTurns={gameTurns}
       />
-      <LogTurns gameTurns={gameTurns} />
+      <LogTurns gameTurns={gameTurns} playerNames={playerNames} />
     </>
   );
 }
