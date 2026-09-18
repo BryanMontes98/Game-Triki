@@ -28,7 +28,7 @@ export default function Player({ namePlayer, onChangeName, keyName, playerSymbol
           {changePlayerField}
           <span className="player-symbol">{playerSymbol}</span>
         </span>
-        <button onClick={() => handleClickButtonPlayer()}>
+        <button onClick={() => handleClickButtonPlayer()} disabled={!isActive} >
           {changeNameButtonField}
         </button>
       </li>

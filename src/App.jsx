@@ -5,12 +5,20 @@ import LogTurns from "./components/LogTurns/LogTurns.jsx";
 import { useState } from "react";
 
 function App() {
+
+  function setActivePlayer(gameTurns) {
+    let activePlayer = 'X';
+    activePlayer = gameTurns.length > 0 && gameTurns[0].symbol == 'X' ? 'O' : 'X';
+    return activePlayer;
+  }
+
   const [gameTurns, setGameTurns] = useState([]);
-  const [activePlayer, setActivePlayer] = useState("X");
+  const activePlayer = setActivePlayer(gameTurns);
   const [playerNames, setPlayerNames] = useState({
     name1: "Jugador 1",
     name2: "Jugador 2",
   });
+
 
   function ChangeNamePlayerField(event, playerKey) {
     setPlayerNames( (...prevPlayerNames)=> {
@@ -27,13 +35,8 @@ function App() {
   }
 
   function handleSelectedSquare(rowIndex, colIndex) {
-    setActivePlayer((lastActivePlayer) =>
-      lastActivePlayer === "X" ? "O" : "X",
-    );
     setGameTurns((prevGameTurns) => {
-      let actualSymbol = "X";
-      if (gameTurns.length > 0 && gameTurns[0].symbol === "X")
-        actualSymbol = "O";
+      const actualSymbol = setActivePlayer(prevGameTurns);
       const actualGameTurn = [
         {
           square: { rowIndex: rowIndex, colIndex: colIndex },
