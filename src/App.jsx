@@ -2,21 +2,22 @@ import "./App.css";
 import Player from "./components/Player/Player.jsx";
 import GameBoard from "./components/GameBoard/GameBoard.jsx";
 import LogTurns from "./components/LogTurns/LogTurns.jsx";
+import GameOver from "./components/GameOver/GameOver.jsx";
 import { useState } from "react";
 import { WINNING_COMBINATIONS } from "./data/winningCombination.js";
 
 function App() {
-  
   function setActivePlayer(gameTurns) {
     let activePlayer = "X";
     activePlayer =
       gameTurns.length > 0 && gameTurns[0].symbol == "X" ? "O" : "X";
+    if (gameTurns.length > 4 && gameTurns[0].hasWinner)
+      activePlayer = gameTurns[0].symbol;
     return activePlayer;
   }
 
   function setHasWinner(prevGameTurns, newGameBoard) {
-
-    if(prevGameTurns.length < 4) return false;
+    if (prevGameTurns.length < 4) return false;
 
     if (prevGameTurns.length >= 4) {
       for (const combination of WINNING_COMBINATIONS) {
@@ -25,18 +26,17 @@ function App() {
           secondSymbol: newGameBoard[combination[1].row][combination[1].column],
           thirdSymbol: newGameBoard[combination[2].row][combination[2].column],
         };
-
         if (
+          symbolsWinner.firstSymbol !== null &&
           symbolsWinner.firstSymbol === symbolsWinner.secondSymbol &&
           symbolsWinner.secondSymbol === symbolsWinner.thirdSymbol
         ) {
-          return true;
+          return { isWinner: true, winningCombination: combination };
         }
       }
 
       return false;
     }
-
   }
 
   const [gameTurns, setGameTurns] = useState([]);
@@ -79,32 +79,40 @@ function App() {
     });
   }
 
+  function handleRestartGame() {
+    setGameTurns([]);
+  }
+
   return (
     <>
       <main>
-        <div className="players-container">
-          <ol className="players">
-            <Player
-              namePlayer={playerNames.name1}
-              onChangeName={ChangeNamePlayerField}
-              keyName="name1"
-              playerSymbol="X"
-              isActive={activePlayer == "X"}
-            />
-            <Player
-              namePlayer={playerNames.name2}
-              onChangeName={ChangeNamePlayerField}
-              keyName="name2"
-              playerSymbol="O"
-              isActive={activePlayer == "O"}
-            />
-          </ol>
+        <div className="game-area">
+          <div className="players-container">
+            <ol className="players">
+              <Player
+                namePlayer={playerNames.name1}
+                onChangeName={ChangeNamePlayerField}
+                keyName="name1"
+                playerSymbol="X"
+                isActive={activePlayer == "X"}
+              />
+              <Player
+                namePlayer={playerNames.name2}
+                onChangeName={ChangeNamePlayerField}
+                keyName="name2"
+                playerSymbol="O"
+                isActive={activePlayer == "O"}
+              />
+            </ol>
+          </div>
+          <GameBoard
+            onSelectedSquare={handleSelectedSquare}
+            gameTurns={gameTurns}
+          />
+          { (gameTurns.length > 8 && !gameTurns[0].hasWinner) && <GameOver text='¡Otra Partida!' handleRestartGame={handleRestartGame} /> }
+          { (gameTurns.length > 4 && gameTurns[0].hasWinner) && <GameOver text='¡Revancha!' handleRestartGame={handleRestartGame} /> }
         </div>
       </main>
-      <GameBoard
-        onSelectedSquare={handleSelectedSquare}
-        gameTurns={gameTurns}
-      />
       <LogTurns gameTurns={gameTurns} playerNames={playerNames} />
     </>
   );
