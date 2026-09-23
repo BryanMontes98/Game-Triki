@@ -188,15 +188,6 @@ header h1 {
   animation: gradientMove 2s linear infinite;
 }
 
-@keyframes gradientMove {
-  from {
-    background-position: 0% 50%;
-  }
-  to {
-    background-position: 200% 50%;
-  }
-}
-
 .info-of-creator {
   background-color: #370a45;
   border-radius: 50px;
@@ -214,6 +205,43 @@ header h1 {
   border-left: 4px solid aliceblue;
   border-right: 4px solid aliceblue;
   border-radius: 50px;
+}
+
+@keyframes gradientMove {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes slide-in-from-left {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-text {
+  0%,
+  100% {
+    text-shadow:
+      0 0 8px #e02eff,
+      0 0 16px #e02eff,
+      0 0 28px #e02eff;
+    opacity: 1;
+  }
+  50% {
+    text-shadow:
+      0 0 3px #e02eff,
+      0 0 6px #e02eff;
+    opacity: 0.6;
+  }
 }
 
 /* RESPONSIVE DESIGN */

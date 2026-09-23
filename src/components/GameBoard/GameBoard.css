@@ -45,9 +45,16 @@
 }
 
 /* RESPONSIVE DESIGN */
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 480px) {
   .game-board-col button {
-    width: 80px;
-    height: 80px;
+    max-width: 70px;
+    max-height: 70px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .game-board-col button {
+    max-width: 62px;
+    max-height: 62px;
   }
 }

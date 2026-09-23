@@ -23,21 +23,10 @@
   position: relative;
 }
 
-.log-turns p {
+.log-turns .text-turns {
   text-align: start;
   font-weight: bold;
   margin-bottom: 5px;
-}
-
-@keyframes slide-in-from-left {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
 }
 
 .log-turns-empty {
@@ -62,6 +51,16 @@
   animation: slide-in-from-left 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
 }
 
+.log-turns-winner {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.log-turns-tie {
+  font-size: 22px;
+  font-weight: bold;
+}
+
 /* RESPONSIVE DESIGN */
 @media screen and (max-width: 900px) {
   .log-turns {
@@ -73,10 +72,10 @@
     font-size: 1.5rem;
   }
   .log-turns li {
-  margin: 0 0 1.8rem 0;
-  padding: 1rem 1.5rem;
-  font-size: 17px;
-}
+    margin: 0 0 1.8rem 0;
+    padding: 1rem 1.5rem;
+    font-size: 17px;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -86,10 +85,19 @@
   }
 
   .log-turns p {
-  text-align: start;
-  font-weight: 900;
-  margin-bottom: 5px;
-}
+    font-weight: 900;
+    margin-bottom: 5px;
+  }
+
+  .log-turns-winner {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .log-turns-tie {
+    font-size: 20px;
+    font-weight: bold;
+  }
 }
 
 @media screen and (max-width: 505px) {

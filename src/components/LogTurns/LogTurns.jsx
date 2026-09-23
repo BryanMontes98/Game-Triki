@@ -1,19 +1,17 @@
 import "./LogTurns.css";
 
-export default function LogTurns({ playerNames, gameTurns }) {
+export default function LogTurns({ playerNames, playerSymbols, gameTurns }) {
 
-  let winnerText = function winnerMessage(turn, playerNames) {
+  let winnerText = function winnerMessage(playerName) {
     return (
-      <span>
-        👑 El jugador 
-        '{turn.symbol === "X" ? playerNames.name1 : playerNames.name2}' 
-        es el ganador 👑
+      <span className="log-turns-winner">
+        👑 Jugador/a ' {playerName} ' has GANADO!!! 👑
       </span>
     );
   };
 
   let draftText = (
-    <span> ⚔️ Nadie ha ganado, la partida ha terminado en un empate ⚔️ </span>
+    <span className="log-turns-tie"> ⚔️ Nadie ha ganado, la partida ha terminado en un empate ⚔️ </span>
   );
 
   return (
@@ -24,15 +22,20 @@ export default function LogTurns({ playerNames, gameTurns }) {
         <ol className="log-turns">
           <h3 className="log-turns-title">Información de la tabla</h3>
           {gameTurns.map((turn, index) => {
+
+            const playerName = turn.symbol === playerSymbols.symbol1 ? playerNames.name1 : playerNames.name2;
+            const isFinalTurn = gameTurns.length - index > 8 && !turn.hasWinner;
+
             return (
               <li key={index}>
-                <p>Turno: {gameTurns.length - index} </p>
-                <p>{turn.hasWinner && winnerText(turn, playerNames)}</p>
-                <p>{(gameTurns.length - index > 8 && !turn.hasWinner) && draftText}</p>
+                <p className="text-turns">Turno: {gameTurns.length - index} </p>
+                <span>{turn.hasWinner && winnerText(playerName)}</span>
+                <p>
+                  { isFinalTurn && draftText }
+                </p>
                 <span>
-                  {turn.symbol === "X" ? playerNames.name1 : playerNames.name2}{" "}
-                  ha colocado el simbolo '{turn.symbol}' en la posición [
-                  {turn.square.rowIndex}][{turn.square.colIndex}]{" "}
+                  <b>{playerName}</b> {" "}
+                  ha colocado el simbolo '<b>{turn.symbol}</b>' en la posición [{turn.square.rowIndex}][{turn.square.colIndex}]{" "}
                 </span>
               </li>
             );

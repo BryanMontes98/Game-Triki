@@ -1,24 +1,22 @@
 import "./GameBoard.css";
-import { useState } from "react";
 
-const initialGameBoard = [];
+const initialGameBoard = Array.from({ length: 3 }, () => Array(3).fill(null));
 
-for (let index = 0; index <= 2; index++)
-  initialGameBoard.push(Array(3).fill(null));
+/* for (let index = 0; index <= 2; index++)
+  initialGameBoard.push(Array(3).fill(null)); */
 
 export default function GameBoard({ onSelectedSquare, gameTurns }) {
 
-  const gameBoard = [...initialGameBoard.map( (array)=> [...array] )];
+  const gameBoard = [...initialGameBoard.map((array) => [...array])];
 
   function IsWinnerSquare(rowIndex, colIndex) {
     if (gameTurns.length > 4 && gameTurns[0].hasWinner) {
       return gameTurns[0].hasWinner.winningCombination.some(
-        (combination) =>
-          combination.row === rowIndex && combination.column === colIndex,
+        ({row, column}) => row === rowIndex && column === colIndex,
       );
     }
   }
-  
+
   for (const turn of gameTurns) {
     const { square, symbol = turn } = turn;
     const { rowIndex, colIndex } = square;
@@ -38,7 +36,8 @@ export default function GameBoard({ onSelectedSquare, gameTurns }) {
                       IsWinnerSquare(rowIndex, colIndex) ? "winningSquare" : ""
                     }
                     onClick={() => {
-                      if (gameTurns.length > 4 && gameTurns[0].hasWinner) return false;
+                      if (gameTurns.length > 4 && gameTurns[0].hasWinner)
+                        return false;
                       if (gameBoard[rowIndex][colIndex] === null)
                         onSelectedSquare(rowIndex, colIndex, gameBoard);
                     }}
